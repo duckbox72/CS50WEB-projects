@@ -1,0 +1,134 @@
+{% extends "network/layout.html" %}
+{% load static %}
+{% block title %}
+    quacKer
+{% endblock %}
+
+{% block body %}
+
+<!-------  FEED VIEW  ------->
+<div id="feed-view">
+    <!-------  FEED NAME AND USERNAME  ------->
+    <div class="row justify-content-center mb-2"> 
+        <div class="col-lg-6 bg-white">
+            <div class="row justify-content-center mt-2">
+                <div id="username-info" class="col my-text font-weight-bolder">   
+                    {% if user.is_authenticated %}
+                        @{{ user.username }}
+                    {% endif %}
+                </div>
+                
+                <div id="feed-name" class="col my-text text-right">   
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-------  New post form  ------->
+    <div class="row justify-content-center mb-2"> 
+        <div class="col-lg-6 border shadow-sm bg-white">
+            <form id="post-form">
+                <div class="row">
+                    <div class="col">
+                        <img id="post-form-photo" src="{% static 'network/no-user.png' %}" class="ml-1" alt="" 
+                        style="height: 20px; width: 20px; object-fit: cover; border-radius: 10px;"> 
+                        <span class="small my-text font-weight-bolder pt-1 ml-1">new quacK </span>
+                        <i id="fa-rss" class="fas fa-rss"></i> 
+                    </div>
+                    
+                </div>
+                <div class="row mt-1">
+                    <div class="col">
+                        <textarea id="post-form-text" class="form-control border-0" type="text" placeholder="What are you thinking?" required maxlength="256" style="font-size: 14px;"></textarea>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col text-right">
+                        <button id="post-form-submit" class="btn btn-sm my-btn rounded-pill shadow-sm  m-2" type="submit">quacK <i id="fa-rss-white" class="fas fa-rss"></i></button>
+                    </div>
+                </div>    
+            </form>    
+        </div>
+    </div>
+    
+    <!-- Actual feed are APPENDED and rendered here -->
+    <div id="feed-view-all"></div>
+    <div id="feed-view-following"></div>
+    <div id="feed-view-no"></div>
+
+    <!-- Actual feed view paginator--> 
+    <div id="feed-view-all-paginator"></div>
+    <div id="feed-view-following-paginator"></div>
+    
+</div>
+<!------- END FEEDS VIEW  ------->
+
+
+<!-------  PROFILE VIEW  ------->
+<div id="profile-view">
+    <div class="row justify-content-center mb-2"> 
+        <div class="col-lg-6 bg-white">
+            <div class="row justify-content-center mt-2">
+                <div id="profile-view-feed-name" class="col my-text text-right">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-------  Profile Card  ------->
+    <div id="profile" class="row justify-content-center mb-2"> 
+        <div class="col-lg-6 border shadow-sm bg-white">
+            <div class="row">
+                <div class="col-2 pl-3 text-left  bg-light">
+                    <img id="profile-photo" src="{% static 'network/no-user.png' %}" class="mt-2" alt="..." 
+                        style="height: 42px; width: 42px; object-fit: cover; border-radius: 21px;">
+                </div>
+                <div class="col my-text text-right bg-light pt-3 pr-4">
+                    <i id="profile-following-sign"></i>
+                </div>
+            
+            </div>
+            <div class="row">
+                <div class="col my-text text-left pt-2 pl-3  bg-light">
+                    <h6 id="profile-username"></h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col small ml-2 mt-3" style="font-size: 12px;">
+                    Following <span id="profile-following" style="font-size: 14px;"></span>
+                </div>
+                <div class="col small pt-3" style="font-size: 12px;">
+                    Followers <span id="profile-followers" style="font-size: 14px;"></span>
+                </div>
+                
+                <div id="toggle-follow" class="col small text-right" style="min-height: 48px;">
+                    
+                </div>
+            
+            </div>
+
+        </div>   
+    </div>
+                
+    <div id="profile-view-feed"></div>
+
+    <!-- Profile view paginator--> 
+    <div id="profile-view-feed-paginator"></div>
+
+</div>
+   
+{% endblock %}
+
+{% block script %}
+   
+    <script src="{% static 'network/index.js' %}"></script>
+    <script src="{% static 'network/add_post.js' %}"></script> 
+    <script src="{% static 'network/generate_page.js' %}"></script>
+    <script src="{% static 'network/generate_paginator.js' %}"></script>
+    <script src="{% static 'network/generate_post.js' %}"></script>
+    <script src="{% static 'network/handle_paginator.js' %}"></script>
+    <script src="{% static 'network/profile.js' %}"></script> 
+    
+{% endblock %}

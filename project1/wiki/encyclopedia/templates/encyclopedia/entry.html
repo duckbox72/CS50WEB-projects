@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Wiki: {{ name.capitalize }}
+{% endblock %}
+
+{% block body %}
+    
+    <div>
+        {{ entry|safe }}
+    </div>
+    <div>
+        <form action="editentry", method="POST">
+            {% csrf_token %}
+            <input class="btn btn-primary" type="submit" value="Edit Page" style="margin: 12px;">
+            <input type="hidden" value="{{ name }}" name="name">
+        </form>
+    </div>
+
+{% endblock %}

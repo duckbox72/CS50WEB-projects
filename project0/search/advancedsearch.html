@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Advanced Search</title>
+        
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="menuadv" style="background-color: rgb(240, 240, 240);">        
+            <a href="index.html"><img style="float: left; padding-left: 5px;" alt="Search" src="search-logo.png" height="56px"></a> 
+            
+            <div style="text-align: right; padding-bottom: 25px;">
+            <a href="index.html">Google Search</a>
+            <a href="imagesearch.html">Image Search</a>
+            </div>
+        </div>
+
+        <div class="header">
+            <p>Advanced Search</p>
+        </div>        
+        <form action="https://google.com/search">
+            <table>
+                <thead>
+                    <td>Find Pages with...</td>
+                    <td></td>
+                    <td class="todo"style="font-size: 13px; padding-left: 10px; color: rgb(100, 100, 100);"><b>To do this in the search box</b></th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="rule">
+                            all these words:
+                        </td>
+                        <td>
+                            <div>
+                                <input class="inpadv" type="text" name="as_q">
+                            </div>
+                        </td>
+                        <td class="example">
+                            Type the important words:  <span class="example-case">tricolor rat terrier</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rule">
+                            this exact word or phrase:
+                        </td>
+                        <td>
+                            <div>
+                                <input class="inpadv" type="text" name="as_epq">
+                            </div>
+                        </td>
+                        <td class="example">
+                            Put exact words in quotes:  <span class="example-case">"rat terrier"</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rule">
+                            any of these words:
+                        </td>
+                        <td>
+                            <div>
+                                <input class="inpadv" type="text" name="as_oq">
+                            </div>
+                        </td>
+                        <td class="example">
+                            Type OR between all the words you want:  <span class="example-case">miniature OR standard</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rule">
+                            none of these words:
+                        </td>
+                        <td>
+                            <div>
+                                <input class="inpadv" type="text" name="as_eq">
+                            </div>
+                        </td>
+                        <td class="example">
+                            Put a minus sign just before words you don't want:  <span class="example-case"> -rodent, -"Jack Russell"</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rule"></td>
+                        <td>
+                            <div style="text-align: right;">
+                                <input class="inpsmtadv" type="submit" value="Advanced Search">                    
+                            </div>
+                        </td>
+                        <td class="example"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>

@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Add Entry
+{% endblock %}
+
+{% block body %}
+   
+    <form action="addentry", method="POST">
+        {% csrf_token %}
+        <div>
+            <span style="font-size: 32px; margin-right: 30px; margin-left: 5px;">Create new page</span>
+            <span>
+                <input type="text" name="title" placeholder="Enter title here..." autofocus style="padding: 3px; padding-bottom: 6px;">
+                <input class="btn btn-primary" type="submit" value="Create Page" style="margin: 12px;">
+            </span>
+        </div>
+            <textarea name="text" placeholder="Enter descrtiption text here..." style="padding: 15px;"></textarea>  
+    </form>
+    
+{% endblock %}

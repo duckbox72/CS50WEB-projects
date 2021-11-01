@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Social Network: {% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        
+        <link rel="shortcut icon" href="{% static 'network/favicon.ico' %}">
+        <link href="{% static 'network/styles.css' %}" rel="stylesheet">
+        
+        <!-- INCLUDES JAVASCRIPT PACKAGES REACT, REACTDOM, BABEL
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        -->
+        
+        <script src="{% static 'network/index.js' %}" type="text/babel"></script>
+        {% block script %}
+        {% endblock %}
+    </head>
+    <body class="bg-white ">
+        
+        <div id="navbar" class="container sticky-top">
+            
+            <div class="row">
+
+                <div class="col">
+                </div>
+           
+                <div class="col-lg-6 border  shadow-sm bg-white">
+                    <nav class="navbar navbar-expand navbar-light">    
+                        <a class="navbar-brand" href=""><img src="{% static 'network/quacker-logo.png' %}" alt="ImgLogo" height="42px"></a>
+                        <div class="mr-auto">
+                            <ul class="navbar-nav pt-2">
+                                {% if user.is_authenticated %}
+                                    <li class="nav-item">
+                                        <a id="index" class="nav-link" ><i class="fas fa-home"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a id="profile" class="nav-link"><i class="fas fa-user"></i></a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a id="following" class="nav-link" ><i class="fas fa-user-friends"></i></a>
+                                    </li>
+                                    
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i></a>
+                                    </li>
+                                {% else %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-user"></i></a>
+                                    </li>
+                                    
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'register' %}"><i class="fas fa-user-plus"></i></a>
+                                    </li>
+                                {% endif %}
+                            </ul>             
+                        </div>
+                        <div class="navbar-brand my-text pt-2">
+                            {% if user.is_authenticated %}
+                                <a id="username" name="{{ user.id }}"></a>
+                            {% endif %}
+                        </div>      
+                    </nav>
+                </div>
+
+                <div class="col">
+                </div>
+
+            </div>
+            
+        </div>
+    
+        <div class="body">
+            <div class="container">
+                {% block body %}
+                {% endblock %}
+            </div>
+        </div>
+        
+    </body>
+</html>  

@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Error: Duplicate Entry
+{% endblock %}
+
+{% block body %}
+    
+    <h4>Unfortunately the page <span style="color: #007bff; font-size: larger;">{{ title }}</span> already exists.</h4>
+    <h4>File cannot be created.</h4>
+    <div style="padding-top: 10px;">
+        <form action="addentry">
+            <input class="btn btn-link" type="submit" value="Please try another title"></input>
+        </form> 
+    </div> 
+    
+
+{% endblock%}
